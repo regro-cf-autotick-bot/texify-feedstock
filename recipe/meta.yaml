@@ -1,5 +1,5 @@
 {% set name = "texify" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/texify-{{ version }}.tar.gz
-  sha256: 4fed5946e4b334a4f59d948f7d8338dc31d609fefcab3e7661ee3195a9be4f20
+  sha256: bab30f8445aa60e36de122fb86deb77b3f25348a885d4d5f3c67d6b6f5bb2e81
 
 build:
   entry_points:
