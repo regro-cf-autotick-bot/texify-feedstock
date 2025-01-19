@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/texify-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/texify-{{ version }}.tar.gz
   sha256: bab30f8445aa60e36de122fb86deb77b3f25348a885d4d5f3c67d6b6f5bb2e81
 
 build:
@@ -14,15 +14,15 @@ build:
     - texify = ocr_image:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.9,<4.0,!=3.9.7
+    - python >={{ python_min }},<4.0
     - transformers >=4.36.2,<5.0.0
     - pytorch >=2.1.2,<3.0.0
     - pydantic >=2.5.2,<3.0.0
@@ -41,6 +41,7 @@ test:
     - texify --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/VikParuchuri/texify
